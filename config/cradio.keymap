@@ -1,0 +1,111 @@
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/outputs.h>
+
+#ifndef KEYMAP_DRAWER
+#include "keys_de.h"
+#endif
+
+&sk {
+    lazy;
+    quick-release;
+    release-after-ms = <900>;
+};
+
+&lt {
+    quick-tap-ms = <220>;
+};
+
+/ {
+    behaviors {
+        qexcl: qmark_excl {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp DE_QMARK>, <&kp DE_EXCL>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+            keep-mods = <(MOD_RSFT)>;
+        };
+        
+        alt_tabber: swapper {
+            compatible = "zmk,behavior-tri-state";
+            #binding-cells = <0>;
+            bindings = <&kt LALT>, <&kp TAB>, <&kt LALT>;
+            ignored-key-positions = <7 16 17 18>; // arrow keys
+        };
+    };
+
+    macros {
+        ZMK_MACRO1(bts,
+            bindings
+                = <&out OUT_BLE>
+                , <&macro_param_1to2>
+                , <&bt BT_SEL MACRO_PLACEHOLDER>;
+        )
+    };
+
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+        tri_layer {
+            if-layers = <1 2>;
+            then-layer = <3>;
+        };
+    };
+
+    keymap {
+        compatible = "zmk,keymap";
+        default_layer {
+            bindings = <
+                &kp Q      &kp W   &kp E   &kp R   &kp T          &kp DE_Z      &kp U   &kp I          &kp O        &kp P
+                &kp A      &kp S   &kp D   &kp F   &kp G          &kp H         &kp J   &kp K          &kp L        &sl 4
+                &kp DE_Y   &kp X   &kp C   &kp V   &kp B          &kp N         &kp M   &kp DE_COMMA   &kp DE_DOT   &qexcl
+                                           &mo 1   &kp LSHFT      &lt 5 SPACE   &mo 2
+            >;
+        };
+
+        navigation_layer {
+            bindings = <
+                &kp ESC        &alt_tabber   &kp LC(LS(TAB))   &kp LC(TAB)   &kp LC(F)         &kp PG_UP   &kp HOME   &kp UP     &kp END     &kp CLCK
+                &sk LGUI       &sk LALT      &sk LCTRL         &sk LSHFT     &sk RALT          &kp PG_DN   &kp LEFT   &kp DOWN   &kp RIGHT   &kp DEL
+                &kp LC(DE_Z)   &kp LC(X)     &kp LC(C)         &kp LC(V)     &kp LC(DE_Y)      &kp RET     &kp BSPC   &kp TAB    &none       &kp PSCRN
+                                                               &trans        &trans            &trans      &trans
+            >;
+        };
+
+        symbol1_layer {
+            bindings = <
+                &kp N1      &kp N2         &kp N3        &kp N4        &kp N5           &kp N6         &kp N7         &kp N8        &kp N9        &kp N0
+                &kp DE_LT   &kp DE_PRCNT   &kp DE_LPAR   &kp DE_LBRC   &kp DE_LBKT      &kp DE_EQUAL   &kp DE_PLUS    &kp DE_STAR   &kp DE_AT     &kp DE_DQT
+                &kp DE_GT   &kp DE_HASH    &kp DE_RPAR   &kp DE_RBRC   &kp DE_RBKT      &kp DE_UNDER   &kp DE_MINUS   &kp DE_FSLH   &kp DE_BSLH   &kp DE_SQT
+                                                         &trans        &trans           &trans         &trans
+            >;
+        };
+
+        symbol2_layer {
+            bindings = <
+                &kp F1         &kp F2         &kp F3        &kp F4        &kp F5      &kp F6   &kp F7   &kp F8   &kp F9   &kp F10
+                &kp DE_SECT    &kp DE_DEG     &kp DE_PIPE   &kp DE_AMPS   &trans      &trans   &trans   &trans   &trans   &kp F11
+                &kp DE_CARET   &kp DE_TILDE   &kp DE_EURO   &kp DE_DLLR   &trans      &trans   &trans   &trans   &trans   &kp F12
+                                              &trans        &trans        &trans      &trans
+            >;
+        };
+
+        international_layer {
+            bindings = <
+                &trans      &trans      &trans         &trans         &trans      &trans   &kp DE_UE   &trans   &kp DE_OE   &trans
+                &kp DE_AE   &kp DE_SZ   &kp DE_ACUTE   &kp DE_GRAVE   &trans      &trans   &trans      &trans   &trans      &trans
+                &trans      &trans      &trans         &trans         &trans      &trans   &trans      &trans   &trans      &trans
+                                        &trans         &trans         &trans      &trans
+            >;
+        };
+
+        system_layer {
+            bindings = <
+                &out OUT_USB   &bts 0          &bts 1          &bts 2          &bts 3             &kp C_BRI_UP   &none          &none        &none          &none 
+                &none          &bt BT_DISC 0   &bt BT_DISC 1   &bt BT_DISC 2   &bt BT_DISC 3      &kp C_BRI_DN   &kp C_VOL_DN   &kp C_MUTE   &kp C_VOL_UP   &none 
+                &bt BT_CLR     &none           &none           &none           &none              &none          &kp C_PREV     &kp C_PP     &kp C_NEXT     &none 
+                                                               &bootloader     &trans             &trans         &bootloader
+            >;
+        };
+    };
+};
