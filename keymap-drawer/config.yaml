@@ -1,0 +1,219 @@
+draw_config:
+  append_colon_to_layer_header: false
+  
+  glyph_tap_size: 14
+  glyph_hold_size: 8
+  glyph_shifted_size: 8
+  
+parse_config:
+  zmk_remove_keycode_prefix: ["DE_"]
+    
+  sticky_label: $$mdi:circle-small$$
+  toggle_label: $$mdi:toggle-switch$$
+  trans_legend:
+    tap: $$mdi:chevron-down$$
+    type: trans
+  
+  raw_binding_map: 
+    '&sys_reset': $$mdi:backup-restore$$
+    '&bootloader': $$mdi:progress-download$$
+    '&key_repeat': $$mdi:repeat$$
+    '&caps_word': $$mdi:caps-lock$$
+    '&alt_tabber': $$mdi:swap-horizontal$$
+
+    '&kp DE_COMMA':
+      tap: ','
+      shifted: ';'
+    
+    '&kp DE_DOT':
+      tap: '.'
+      shifted: ':'
+    
+    '&out OUT_BLE': $$mdi:bluetooth$$
+    '&out OUT_USB': $$mdi:usb$$
+    
+    '&bt BT_CLR':
+      tap: $$mdi:bluetooth$$
+      hold: $$mdi:close-thick$$
+    '&bts 0':
+      tap: $$mdi:bluetooth-connect$$
+      hold: '0'
+    '&bts 1':
+      tap: $$mdi:bluetooth-connect$$
+      hold: '1'
+    '&bts 2':
+      tap: $$mdi:bluetooth-connect$$
+      hold: '2'
+    '&bts 3':
+      tap: $$mdi:bluetooth-connect$$
+      hold: '3'
+    '&bts 4':
+      tap: $$mdi:bluetooth-connect$$
+      hold: '4'
+    '&bt BT_DISC 0':
+      tap: $$mdi:bluetooth-off$$
+      hold: '0'
+    '&bt BT_DISC 1':
+      tap: $$mdi:bluetooth-off$$
+      hold: '1'
+    '&bt BT_DISC 2':
+      tap: $$mdi:bluetooth-off$$
+      hold: '2'
+    '&bt BT_DISC 3':
+      tap: $$mdi:bluetooth-off$$
+      hold: '3'
+    '&bt BT_DISC 4':
+      tap: $$mdi:bluetooth-off$$
+      hold: '4'
+
+    '&kp LS(TAB)': $$mdi:keyboard-tab-reverse$$
+    '&kp LC(TAB)': $$mdi:arrow-right-bold-box$$
+    '&kp LC(LS(TAB))': $$mdi:arrow-left-bold-box$$
+
+    '&kp LC(C)': $$mdi:content-copy$$
+    '&kp LC(V)': $$mdi:content-paste$$
+    '&kp LC(X)': $$mdi:content-cut$$
+    '&kp LC(DE_Z)': $$mdi:undo$$
+    '&kp LC(DE_Y)': $$mdi:redo$$
+    '&kp LC(LS(DE_Z))': $$mdi:redo$$
+
+    '&kp LC(F)': $$mdi:text-search$$
+    '&kp LC(W)': $$mdi:close-box-outline$$
+      
+  zmk_keycode_map:
+    LALT: ALT
+    
+    SPACE: $$mdi:keyboard-space$$
+
+    RETURN: $$mdi:keyboard-return$$
+    RET: $$mdi:keyboard-return$$
+    
+    BACKSPACE: $$mdi:backspace-outline$$
+    BSPC: $$mdi:backspace-outline$$
+    
+    DELETE: $$mdi:backspace-reverse-outline$$
+    DEL: $$mdi:backspace-reverse-outline$$
+    
+    LCTRL: $$mdi:apple-keyboard-control$$
+    LEFT_CONTROL: $$mdi:apple-keyboard-control$$
+    
+    RCTRL: $$mdi:apple-keyboard-control$$
+    RIGHT_CONTROL: $$mdi:apple-keyboard-control$$
+    
+    LSHFT: $$mdi:apple-keyboard-shift$$
+    LSHIFT: $$mdi:apple-keyboard-shift$$
+    LEFT_SHIFT: $$mdi:apple-keyboard-shift$$
+    
+    RSHFT: $$mdi:apple-keyboard-shift$$
+    RSHIFT: $$mdi:apple-keyboard-shift$$
+    RIGHT_SHIFT: $$mdi:apple-keyboard-shift$$
+
+    LGUI: $$mdi:microsoft-windows$$
+    RGUI: $$mdi:microsoft-windows$$
+    
+    TAB: $$mdi:keyboard-tab$$
+    
+
+    CLCK: $$mdi:apple-keyboard-caps$$
+    CAPS: $$mdi:apple-keyboard-caps$$
+    CAPSLOCK: $$mdi:apple-keyboard-caps$$
+
+    PSCRN: $$mdi:monitor-screenshot$$
+    
+    C_PP: $$mdi:play-pause$$
+    C_NEXT: $$mdi:skip-forward$$
+    C_PREV: $$mdi:skip-backward$$
+    
+    C_MUTE: $$mdi:volume-mute$$
+    C_VOL_UP: $$mdi:volume-plus$$
+    C_VOL_DN: $$mdi:volume-minus$$
+    
+    C_BRI_UP: $$tabler:brightness-up$$
+    C_BRI_DN: $$tabler:brightness-down$$
+    
+    UP: $$mdi:arrow-up$$
+    DOWN: $$mdi:arrow-down$$
+    LEFT: $$mdi:arrow-left$$
+    RIGHT: $$mdi:arrow-right$$
+    
+    PG_UP: Page Up
+    PG_DN: Page Down
+
+    SECT: '§'
+    DEG: '°'
+    EURO: '€'
+
+    A_UMLAUT: 'Ä'
+    AE: 'Ä'
+    U_UMLAUT: 'Ü'
+    UE: 'Ü'
+    O_UMLAUT: 'Ö'
+    OE: 'Ö'
+    SZ: 'ß'
+    ACUTE: '´'
+    
+    # default
+    EXCLAMATION: '!'
+    EXCL: '!'
+    AT_SIGN: '@'
+    AT: '@'
+    HASH: '#'
+    POUND: '#'
+    DOLLAR: $
+    DLLR: $
+    PERCENT: '%'
+    PRCNT: '%'
+    CARET: ^
+    AMPERSAND: '&'
+    AMPS: '&'
+    ASTERISK: '*'
+    ASTRK: '*'
+    STAR: '*'
+    LEFT_PARENTHESIS: (
+    LPAR: (
+    RIGHT_PARENTHESIS: )
+    RPAR: )
+    EQUAL: '='
+    PLUS: +
+    MINUS: '-'
+    UNDERSCORE: _
+    UNDER: _
+    SLASH: /
+    FSLH: /
+    QUESTION: '?'
+    QMARK: '?'
+    BACKSLASH: \
+    BSLH: \
+    PIPE: '|'
+    NON_US_BACKSLASH: \
+    PIPE2: '|'
+    NON_US_BSLH: '|'
+    SEMICOLON: ;
+    SEMI: ;
+    COLON: ':'
+    SINGLE_QUOTE: ''''
+    SQT: ''''
+    APOSTROPHE: ''''
+    APOS: ''''
+    DOUBLE_QUOTES: '"'
+    DQT: '"'
+    COMMA: ','
+    LESS_THAN: <
+    LT: <
+    PERIOD: .
+    DOT: .
+    GREATER_THAN: '>'
+    GT: '>'
+    LEFT_BRACKET: '['
+    LBKT: '['
+    LEFT_BRACE: '{'
+    LBRC: '{'
+    RIGHT_BRACKET: ']'
+    RBKT: ']'
+    RIGHT_BRACE: '}'
+    RBRC: '}'
+    GRAVE: '`'
+    TILDE: '~'
+    NON_US_HASH: '#'
+    NUHS: '#'
+    TILDE2: '~'
