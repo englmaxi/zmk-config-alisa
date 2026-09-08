@@ -21,14 +21,16 @@
     behaviors {
         qexcl: qmark_excl {
             compatible = "zmk,behavior-mod-morph";
+            display-name = "SM Qmark-Excl";
             #binding-cells = <0>;
             bindings = <&kp DE_QMARK>, <&kp DE_EXCL>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
             keep-mods = <(MOD_RSFT)>;
         };
-        
+
         alt_tabber: swapper {
             compatible = "zmk,behavior-tri-state";
+            display-name = "Alt-Tabber";
             #binding-cells = <0>;
             bindings = <&kt LALT>, <&kp TAB>, <&kt LALT>;
             ignored-key-positions = <7 16 17 18>; // arrow keys
@@ -36,12 +38,15 @@
     };
 
     macros {
-        ZMK_MACRO1(bts,
+        bts: bts {
+            compatible = "zmk,behavior-macro-one-param";
+            display-name = "BT Switch + Select";
+            #binding-cells = <1>;
             bindings
                 = <&out OUT_BLE>
                 , <&macro_param_1to2>
                 , <&bt BT_SEL MACRO_PLACEHOLDER>;
-        )
+        };
     };
 
     conditional_layers {
@@ -97,8 +102,8 @@
         international_layer {
             display-name = "INT";
             bindings = <
-                &trans      &trans      &trans         &trans         &trans      &trans   &kp DE_UE   &trans   &kp DE_OE   &trans
-                &kp DE_AE   &kp DE_SZ   &kp DE_ACUTE   &kp DE_GRAVE   &trans      &trans   &trans      &trans   &trans      &trans
+                &trans      &trans      &trans         &trans         &trans      &trans   &kp DE_U_UMLAUT   &trans   &kp DE_O_UMLAUT   &trans
+                &kp DE_A_UMLAUT   &kp DE_SZ   &kp DE_ACUTE   &kp DE_GRAVE   &trans      &trans   &trans      &trans   &trans      &trans
                 &trans      &trans      &trans         &trans         &trans      &trans   &trans      &trans   &trans      &trans
                                         &trans         &trans         &trans      &trans
             >;
