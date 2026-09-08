@@ -1,4 +1,4 @@
-layout: {qmk_keyboard: ferris/sweep}
+layout: {zmk_keyboard: cradio}
 layers:
   DEF:
   - Q
