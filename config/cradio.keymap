@@ -21,14 +21,16 @@
     behaviors {
         qexcl: qmark_excl {
             compatible = "zmk,behavior-mod-morph";
+            display-name = "SM Qmark-Excl";
             #binding-cells = <0>;
             bindings = <&kp DE_QMARK>, <&kp DE_EXCL>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
             keep-mods = <(MOD_RSFT)>;
         };
-        
+
         alt_tabber: swapper {
             compatible = "zmk,behavior-tri-state";
+            display-name = "Alt-Tabber";
             #binding-cells = <0>;
             bindings = <&kt LALT>, <&kp TAB>, <&kt LALT>;
             ignored-key-positions = <7 16 17 18>; // arrow keys
@@ -41,6 +43,7 @@
                 = <&out OUT_BLE>
                 , <&macro_param_1to2>
                 , <&bt BT_SEL MACRO_PLACEHOLDER>;
+            display-name = "BT Switch + Select";
         )
     };
 
