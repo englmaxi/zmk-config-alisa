@@ -100,8 +100,8 @@
         international_layer {
             display-name = "INT";
             bindings = <
-                &trans      &trans      &trans         &trans         &trans      &trans   &kp DE_UE   &trans   &kp DE_OE   &trans
-                &kp DE_AE   &kp DE_SZ   &kp DE_ACUTE   &kp DE_GRAVE   &trans      &trans   &trans      &trans   &trans      &trans
+                &trans      &trans      &trans         &trans         &trans      &trans   &kp DE_U_UMLAUT   &trans   &kp DE_O_UMLAUT   &trans
+                &kp DE_A_UMLAUT   &kp DE_SZ   &kp DE_ACUTE   &kp DE_GRAVE   &trans      &trans   &trans      &trans   &trans      &trans
                 &trans      &trans      &trans         &trans         &trans      &trans   &trans      &trans   &trans      &trans
                                         &trans         &trans         &trans      &trans
             >;
